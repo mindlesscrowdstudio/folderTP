@@ -57,6 +57,7 @@ input[type="button"].animated-button.v-3:hover{
   background: #D24D57;
   opacity: .8;
    height: 140%;
+   -o-transform: translateY(-10%);
   -moz-transform: translateY(-10%);
 	-ms-transform:  translateY(-10%);
 	-webkit-transform: translateY(-10%);
@@ -164,8 +165,13 @@ input[type=number] {
 .input__label--hoshi::after {
 	margin-top: 2px;
 	border-bottom: 4px solid red;
+  -o-transform: translate3d(-100%,0,0);
+  -moz-transform: translate3d(-100%,0,0);
+  -ms-transform: translate3d(-100%,0 0);
 	-webkit-transform: translate3d(-100%, 0, 0);
 	transform: translate3d(-100%, 0, 0);
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 }
@@ -175,10 +181,15 @@ input[type=number] {
 .input__field--hoshi:focus + .input__label--hoshi::after,
 .input--filled .input__label--hoshi::after {
 	-webkit-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
 .input__field--hoshi:focus + .input__label--hoshi .input__label-content--hoshi,
 .input--filled .input__label-content--hoshi {
+  -moz-animation: anim-1 0.3s forwards;
+  -o-animation: anim-1 0.3s forwards;
 	-webkit-animation: anim-1 0.3s forwards;
 	animation: anim-1 0.3s forwards;
 }
@@ -187,6 +198,8 @@ input[type=number] {
 	50% {
 		opacity: 0;
 		-webkit-transform: translate3d(1em, 0, 0);
+    -moz-transform:translate3d(1em, 0, 0);
+    -o-transform:translate3d(1em, 0, 0);
 		transform: translate3d(1em, 0, 0);
 	}
 	51% {
