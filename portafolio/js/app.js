@@ -6,6 +6,7 @@ var firstFieldset;
 var ingresados= 0;
 var boton2;
 var sumaArrays= 0;
+var multiplosArray = [];
 function boton1(){
 
     input1 = document.getElementById("btn1");
@@ -73,10 +74,15 @@ function suma(){
 }
 /*Determina si el mayor es divisor de la suma. Si es divisor, lo muestra. Si no
 lo es, busca el divisor más cercano al mayor (menor a dicho número) y lo muestra.*/
-function divisorSum(){
-  if(mayor % sumaArrays){
+function divisorSum(mayor,sumaArrays){
+  if(mayor % sumaArrays === 1){
     console.log("es divisor");
+    //falta mostrar el divisor en pantalla
+  }else {
+    calculo = Math.floor(mayor / sumaArrays);
+    residuo = mayor % sumaArrays;
   }
+
 }
 
 
@@ -88,7 +94,7 @@ function descendente(){}
 function reset(){}
 
 
-
+  
 
 
 
