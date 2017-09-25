@@ -16,13 +16,26 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    		<!-- Header -->
+        <header id="header">
+          <a href="index.html" class="title">Portfolio</a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Index</a></li>
+              <li><a href="numeros.html" class="active">Números</a></li>
+              <li><a href="receta.html">Receta</a></li>
+              <li><a href="juego.html">Juego</a></li>
+            </ul>
+          </nav>
+        </header>   
     <section>
       <h1>Ejercicio números</h1>
     <form>
       <fieldset id="f1">
-        <input type="number" name="ingresar" id="btn1" class="input_field input_field_h" min="1"/>
-        <input type="button" class="animated-button v-3" value="ingrese numero" onclick="boton1();"/>
+        <input type="number" name="ingresar" id="btn1" class="input_field input_field_h" min="1">
+        <input type="button" class="animated-button v-3" value="ingrese numero" onkeypress="boton1();" onclick="boton1();">
       </fieldset>
+      <span id="showR"></span>
       <fieldset class="fieldsetG">
         <input type="button" class="animated-button v-3" value="suma" onclick="suma();" id="btn2" disabled>
 
@@ -33,7 +46,7 @@
 
        <input type="button" class="animated-button v-3" onclick="descendente();" id="btn5" value="descendente" disabled>
 
-       <input type="button" class="animated-button v-3" onclick="reset();" id="btn6" value="reset" disabled>
+       <input type="button" class="animated-button v-3" onclick="init();" id="btn6" value="reset" disabled>
       </fieldset>
   
 
