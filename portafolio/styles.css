@@ -3,9 +3,60 @@ body {
 	font-family: 'Lato', sans-serif;
 	background: #353535;
 	color: #FFF;
+	margin: 0;
+	font-size: 16px;
 }
-.hidden{
-  display: none;
+header{
+	min-height: 170px;
+	background: #f0f0f0;
+	position: relative;
+}
+h1{
+	text-align: center
+}
+a.title {
+	text-decoration: none;
+	background-color: rgb(249, 215, 50);
+	color: #353535;
+	font-size: 2.1em;
+	display: block;
+	position: relative;
+	padding-top: 0.5em;
+	padding-left: 1em;
+	font-weight: 200;
+}
+nav{
+	font-family: "Lato", sans-serif;
+	font-weight: 500;
+	font-size: 1em;
+	margin: 0px auto;
+	width: 500px;
+	line-height: 56px;
+
+}
+ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 1.1em;	
+}
+ul li a{
+	text-decoration: none;
+	color: #D24D57;
+}
+
+.wrap{
+	margin: 0px auto;
+	text-align: center;
+}
+
+#showR{
+	text-align: center;
+	display: block;
+	font-size: 2em;
+	margin: 0px auto;
+	color: #D24D57;
+	width: 60%;
+	
 }
 fieldset{
   border:none;
@@ -26,7 +77,7 @@ fieldset.fieldsetG{
 	width: calc(100% - 2em);
 	vertical-align: top;
 }
-input[type="button"].animated-button{
+input[type="button"].animated-button, button{
   background-color: transparent;
   border-radius: 0;
   color: #FFF;
@@ -46,11 +97,11 @@ input[type="button"].animated-button{
 	transition: all 1s ease; 
 }
 
-input[type="button"].animated-button:hover{
+input[type="button"].animated-button:hover, button:hover{
   text-shadow: none;
   
 }
-input[type="button"].animated-button.v-3{
+input[type="button"].animated-button.v-3, button.animated-button.v-3{
   border: 2px solid #D24D57;
 }
 input[type="button"].animated-button.v-3:hover{
@@ -137,6 +188,7 @@ input[type=number] {
 	width: 100%;
 	background: transparent;
 	color: #595F6E;
+	font-size: 1em;	
 }
 .input__label--hoshi {
 	position: absolute;
@@ -193,7 +245,10 @@ input[type=number] {
 	-webkit-animation: anim-1 0.3s forwards;
 	animation: anim-1 0.3s forwards;
 }
-
+#submit{
+	display: block;
+	margin: 0px auto;
+}
 @-webkit-keyframes anim-1 {
 	50% {
 		opacity: 0;
@@ -230,4 +285,28 @@ input[type=number] {
 		-webkit-transform: translate3d(0, -40%, 0);
 		transform: translate3d(0, -40%, 0);
 	}
+}
+
+#total{
+	text-align: center;
+	font-size: 1.1em;
+	color: #D24D57;
+}
+form{
+	padding: 1em;
+	margin-top: 1em;
+}
+/*dados*/
+img{
+	width: auto;
+	height: 110px;
+}
+#dado{
+	display: block;
+	text-align: center;
+	margin-top: 5em;
+}
+#btn {
+	display: block;
+	margin: 0px auto;
 }
