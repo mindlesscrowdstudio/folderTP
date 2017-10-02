@@ -72,7 +72,7 @@ function suma(){
  
   if(minimo5()){   
     for(var i=0; i < datos.length; i++){  
-      sumaArrays += datos[i]; //sumaArrays = sumaArrays + datos [i];
+      sumaArrays += datos[i];
       showResultado = document.getElementById("showR");
       showResultado.innerText = mensajes[4] + sumaArrays;    
       //console.log("suma",sumaArrays);  
