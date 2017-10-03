@@ -1,7 +1,6 @@
 var arNumeros = [];
 var imagenes  = [];
 var cantidadDados;
-//imagenes[0] = "0.png";
 imagenes[1] = "1.png";
 imagenes[2] = "2.png";
 imagenes[3] = "3.png";
@@ -30,7 +29,7 @@ var currentTurno;
 function start() {
   arNumeros = []; //limpiamos el arreglo
 
-  if(contador === 0){
+  if(contador === 0){ 
     
     asignaTurno();
 
@@ -100,32 +99,40 @@ function asignaTurno(){
 }
 
  function sumaArreglos(){
+   suma = 0;
    for(var i=0; i < arNumeros.length; i++){
       suma += arNumeros[i];
       console.log('suma',suma);
      
    }
    asignaSumaATurno();
- }
+ } 
  
  function habilitaDados(){
    contador = 0; //reseteamos el contador 
   for(var i = 0; i < arNumeros.length;i++){
     if(arNumeros[i]=== 1 || arNumeros[i]=== 3 || arNumeros[i] === 4 || arNumeros[i] === 6){
       contador++;                 
-    }else{
-
     }
   }
-  console.log("contador",contador); 
+ 
  }
 
   function asignaSumaATurno(){
     console.log("currentTUrno", currentTurno);
+    var showSumaJugadores
+    var attachP = document.createElement("p");
+    var nodo;
     if(currentTurno === true){
-      sumaJugador1 = suma;
+      sumaJugador1 += suma;
+      nodo = document.createTextNode("Jugador 1: " +  sumaJugador1 + " puntos");
+      attachP.appendChild(nodo);
+      showSumaJugadores = document.getElementById("dado").appendChild(attachP);
     } else {
-      sumaJugador2 = suma
+      sumaJugador2 += suma;
+      attachP.innerText = "Jugador 2 :" + sumaJugador2 + " puntos";
+      showSumaJugadores = document.getElementById("dado").appendChild(attachP);
+      
     }
     
     

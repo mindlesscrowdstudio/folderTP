@@ -306,7 +306,14 @@ img{
 	text-align: center;
 	margin-top: 5em;
 }
+.wrapp{
+	padding: 1.5em;
+	margin-bottom: 1em;
+}
 #btn {
 	display: block;
 	margin: 0px auto;
+}
+#dado p{
+	font-size:1.1em;
 }
