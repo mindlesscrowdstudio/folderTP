@@ -25,7 +25,7 @@ function boton1() {
     console.log("value1", value1);
     if (!isNaN(value1)){
       ingresados++;
-      datos.push(value1); //original
+      datos.push(value1); 
       showResultado.innerText = mensajes[1] + ingresados;
       input1.form.reset();
       disableBtn();
@@ -33,7 +33,6 @@ function boton1() {
     }else{
       showResultado.innerText = mensajes[3];
       input1.form.reset();
-     
     }
 }
 
@@ -69,7 +68,7 @@ function minimo5(){
 
 
 function suma(){
- 
+  
   if(minimo5()){   
     for(var i=0; i < datos.length; i++){  
       sumaArrays += datos[i];
@@ -79,14 +78,9 @@ function suma(){
       sumaArraysC = sumaArrays;
     }
   }
-  if(wasClicked() === 1){
-    sumaArrays = [];
-  }
+
 }
 
-function wasClicked() {
-  return buttonTouched = 1;
-}
 /*Determina si el mayor es divisor de la suma. Si es divisor, lo muestra. Si no
 lo es, busca el divisor más cercano al mayor (menor a dicho número) y lo muestra.*/
 function divisorSum(){
@@ -139,8 +133,7 @@ function descendente(){
 }
 //resetea sistema
 function init(){
-  sumaArraysC = [];
-  datos.length = 0;
+  window.location.reload();
 }
 
 
