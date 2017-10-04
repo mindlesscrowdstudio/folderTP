@@ -315,5 +315,13 @@ img{
 	margin: 0px auto;
 }
 #dado p{
-	font-size:1.1em;
+	font-size:1.1em;;
+}
+#anuncios {
+	font-size: 1.1em;
+	color:#D24D57;
+	text-align: center;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+
 }

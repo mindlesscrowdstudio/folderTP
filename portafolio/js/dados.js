@@ -21,6 +21,7 @@ var turno2 = false;
 var turno1Suma = 0;
 var turno2Suma = 0;
 var currentTurno;
+var anuncio;
 
 //obtiene el numero random
   function getRandom() {
@@ -28,9 +29,9 @@ var currentTurno;
   }
 function start() {
   arNumeros = []; //limpiamos el arreglo
-
-  if(contador === 0){ 
-    
+  anuncio = document.getElementById("anuncios");
+  anuncio.innerText = "";
+  if(contador === 0){
     asignaTurno();
 
     cantidadDados = 5;
@@ -78,9 +79,11 @@ function esDosCinco(){
 }
 
 function asignaTurno(){
-
+    
+  var divTurno = document.getElementById("dado");
   if(!turno1){
     
+    //divTurno.innerText = "Turno jugador 2";
     alert("turno jugador 2");
     turno2Suma++;
     console.log('turno2Suma',turno2Suma);
@@ -89,12 +92,14 @@ function asignaTurno(){
     turno2 = false;
     currentTurno = turno2;
   }else{
+    //divTurno.innerText = "Turno jugador 1";
     alert("turno jugador 1");
     turno1Suma++;
     console.log('turno1Suma',turno1Suma);
     currentTurno = turno1;
     turno1 = false;
     turno2 = true;
+    
   }
 }
 
@@ -106,33 +111,36 @@ function asignaTurno(){
      
    }
    asignaSumaATurno();
- } 
+ }
  
  function habilitaDados(){
+    anuncio.innerText = ""; 
    contador = 0; //reseteamos el contador 
-  for(var i = 0; i < arNumeros.length;i++){
-    if(arNumeros[i]=== 1 || arNumeros[i]=== 3 || arNumeros[i] === 4 || arNumeros[i] === 6){
-      contador++;                 
+    for(var i = 0; i < arNumeros.length;i++){
+      if(arNumeros[i]=== 1 || arNumeros[i]=== 3 || arNumeros[i] === 4 || arNumeros[i] === 6){
+        contador++;                 
+      }
+      
     }
-  }
- 
+    
+    anuncio.innerText = "no sumaste nada en la tirada, te restan " + contador + " dados" ;
+    
  }
 
   function asignaSumaATurno(){
     console.log("currentTUrno", currentTurno);
-    var showSumaJugadores
+    var showSumaJugadores;
     var attachP = document.createElement("p");
     var nodo;
     if(currentTurno === true){
       sumaJugador1 += suma;
       nodo = document.createTextNode("Jugador 1: " +  sumaJugador1 + " puntos");
       attachP.appendChild(nodo);
-      showSumaJugadores = document.getElementById("dado").appendChild(attachP);
+      showSumaJugadores = document.getElementById("dado").appendChild(attachP);      
     } else {
       sumaJugador2 += suma;
       attachP.innerText = "Jugador 2 :" + sumaJugador2 + " puntos";
       showSumaJugadores = document.getElementById("dado").appendChild(attachP);
-      
     }
     
     
