@@ -22,6 +22,7 @@ var turno1Suma = 0;
 var turno2Suma = 0;
 var currentTurno;
 var anuncio;
+var finito = true;
 
 //obtiene el numero random
   function getRandom() {
@@ -31,14 +32,15 @@ function start() {
   arNumeros = []; //limpiamos el arreglo
   anuncio = document.getElementById("anuncios");
   anuncio.innerText = "";
-  if(contador === 0){
-    asignaTurno();
 
+  if(contador === 0){
+
+      asignaTurno();
+        
     cantidadDados = 5;
     document.getElementById("dado").innerHTML = "";
 
   }else{
-
     cantidadDados = contador;
     document.getElementById("dado").innerHTML = "";
 
@@ -46,12 +48,10 @@ function start() {
 
     for(var i = 0; i < cantidadDados; i++) {
     arNumeros[i] = getRandom();
-    console.log("arreglo", arNumeros);
-    
     }   
-
     asignaDados();
  }
+ 
 
 
  function asignaDados(){
@@ -65,70 +65,66 @@ function start() {
   });
   
   esDosCinco(); 
-
+  
 }
+
+
 
 function esDosCinco(){
   true2 = arNumeros.includes(2);
   true5 = arNumeros.includes(5);
-  if(true2 || true5){
+   if(true2 || true5){
     habilitaDados();
   } else{
     sumaArreglos();
-  }
+  } 
+
 }
 
 function asignaTurno(){
-    
-  var divTurno = document.getElementById("dado");
+  
   if(!turno1){
-    
-    //divTurno.innerText = "Turno jugador 2";
     alert("turno jugador 2");
     turno2Suma++;
-    console.log('turno2Suma',turno2Suma);
-    //
+    
     turno1 = true;
     turno2 = false;
     currentTurno = turno2;
-  }else{
-    //divTurno.innerText = "Turno jugador 1";
+    
+  } else {
     alert("turno jugador 1");
     turno1Suma++;
     console.log('turno1Suma',turno1Suma);
     currentTurno = turno1;
     turno1 = false;
     turno2 = true;
-    
   }
 }
-
- function sumaArreglos(){
-   suma = 0;
-   for(var i=0; i < arNumeros.length; i++){
-      suma += arNumeros[i];
-      console.log('suma',suma);
-     
-   }
-   asignaSumaATurno();
- }
- 
- function habilitaDados(){
-    anuncio.innerText = ""; 
-   contador = 0; //reseteamos el contador 
-    for(var i = 0; i < arNumeros.length;i++){
-      if(arNumeros[i]=== 1 || arNumeros[i]=== 3 || arNumeros[i] === 4 || arNumeros[i] === 6){
-        contador++;                 
-      }
-      
+function habilitaDados(){
+  anuncio.innerText = ""; 
+ contador = 0; //reseteamos el contador 
+  for(var i = 0; i < arNumeros.length;i++){
+    if(arNumeros[i]=== 1 || arNumeros[i]=== 3 || arNumeros[i] === 4 || arNumeros[i] === 6){
+      contador++;                 
     }
-    
-    anuncio.innerText = "no sumaste nada en la tirada, te restan " + contador + " dados" ;
-    
- }
+  }
+  
+  anuncio.innerText = "no sumaste nada en la tirada, te restan " + contador + " dados" ;
+  
+}
+  function sumaArreglos(){
+  suma = 0;
+  for(var i=0; i < arNumeros.length; i++){
+     suma += arNumeros[i];    
+  }
+  asignaSumaATurno();
+}
+
+
+
+ 
 
   function asignaSumaATurno(){
-    console.log("currentTUrno", currentTurno);
     var showSumaJugadores;
     var attachP = document.createElement("p");
     var nodo;
@@ -136,14 +132,33 @@ function asignaTurno(){
       sumaJugador1 += suma;
       nodo = document.createTextNode("Jugador 1: " +  sumaJugador1 + " puntos");
       attachP.appendChild(nodo);
-      showSumaJugadores = document.getElementById("dado").appendChild(attachP);      
+      showSumaJugadores = document.getElementById("dado").appendChild(attachP);  
+     
     } else {
       sumaJugador2 += suma;
       attachP.innerText = "Jugador 2 :" + sumaJugador2 + " puntos";
       showSumaJugadores = document.getElementById("dado").appendChild(attachP);
+      ganador();
     }
-    
-    
    
-    console.log('J1Suma',sumaJugador1, 'J2Suma', sumaJugador2);
+    //console.log('J1Suma',sumaJugador1, 'J2Suma', sumaJugador2);
+    
+  }
+
+  function ganador(){
+    
+    if(sumaJugador1 >= 20 || sumaJugador2 >= 20){
+       quienGano();
+       var desactivar = document.getElementById("btn");
+       desactivar.disabled = true;
+    }
+  }
+
+  function quienGano(){
+    var win = document.getElementById("anuncios");  
+    if(sumaJugador1 > sumaJugador2){
+      win.innerHTML = "El ganador es jugador1: " +   sumaJugador1;   
+    }else{
+      win.innerHTML = "El ganador es jugador2: " + sumaJugador2;
+    }
   }

@@ -74,7 +74,7 @@ function suma(){
       sumaArrays += datos[i];
       showResultado = document.getElementById("showR");
       showResultado.innerText = mensajes[4] + sumaArrays;    
-      //console.log("suma",sumaArrays);  
+      console.log("suma",sumaArrays);  
       sumaArraysC = sumaArrays;
     }
   }
