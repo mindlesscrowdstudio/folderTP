@@ -17,7 +17,7 @@ var ingMenor = 0;
 function calculaHuevos(){
   huevo_input = document.getElementById("input-1");
   huevo_val = Number(huevo_input.value);
-  console.log(huevo_input.value);
+
   if(isNaN(huevo_val)){
     alert("ingrese un dato valido");
   }else if(huevo_val  < 6){
@@ -34,8 +34,8 @@ function calculaHuevos(){
 function calculaLeche(){
   leche_input = document.getElementById("input-2");
    leche_val = parseInt(leche_input.value);
-  console.log(leche_val);
-  if(isNaN(leche_val)){
+
+   if(isNaN(leche_val)){
     alert("ingresa un dato válido");
   }else if(leche_val < 600){
     alert("Ingresa minimo 600ml de leche");
@@ -70,7 +70,6 @@ function receta(){
 
   ingredientes.push(huevosFin, lecheFin, sugarFin);
   ingMenor = Math.min.apply(null, ingredientes);
-  console.log(ingMenor);
   mostrar();
 }
 

@@ -60,14 +60,10 @@ function start() {
      
     attachImg.src = imgPath + imagenes[index];
     attachImg.id = "imageDado-" + [index];
-    
     div = document.getElementById("dado").appendChild(attachImg); 
   });
-  
   esDosCinco(); 
-  
 }
-
 
 
 function esDosCinco(){
@@ -94,7 +90,6 @@ function asignaTurno(){
   } else {
     alert("turno jugador 1");
     turno1Suma++;
-    console.log('turno1Suma',turno1Suma);
     currentTurno = turno1;
     turno1 = false;
     turno2 = true;
@@ -112,6 +107,7 @@ function habilitaDados(){
   anuncio.innerText = "no sumaste nada en la tirada, te restan " + contador + " dados" ;
   
 }
+
   function sumaArreglos(){
   suma = 0;
   for(var i=0; i < arNumeros.length; i++){
@@ -119,10 +115,6 @@ function habilitaDados(){
   }
   asignaSumaATurno();
 }
-
-
-
- 
 
   function asignaSumaATurno(){
     var showSumaJugadores;
@@ -140,25 +132,23 @@ function habilitaDados(){
       showSumaJugadores = document.getElementById("dado").appendChild(attachP);
       ganador();
     }
-   
-    //console.log('J1Suma',sumaJugador1, 'J2Suma', sumaJugador2);
     
   }
 
   function ganador(){
     
-    if(sumaJugador1 >= 20 || sumaJugador2 >= 20){
+    if(sumaJugador1 >= 100 || sumaJugador2 >= 100){
        quienGano();
        var desactivar = document.getElementById("btn");
        desactivar.disabled = true;
     }
   }
 
-  function quienGano(){
-    var win = document.getElementById("anuncios");  
-    if(sumaJugador1 > sumaJugador2){
-      win.innerHTML = "El ganador es jugador1: " +   sumaJugador1;   
-    }else{
-      win.innerHTML = "El ganador es jugador2: " + sumaJugador2;
-    }
+function quienGano(){
+      var win = document.getElementById("anuncios");  
+      if(sumaJugador1 > sumaJugador2){
+        win.innerHTML = "El ganador es jugador1: " +   sumaJugador1;   
+      }else{
+        win.innerHTML = "El ganador es jugador2: " + sumaJugador2;
+      }
   }

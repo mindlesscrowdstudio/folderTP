@@ -22,8 +22,8 @@ function boton1() {
     showResultado = document.getElementById("showR");
     input1 = document.getElementById("btn1");
     value1 = parseInt(input1.value);
-    console.log("value1", value1);
-    if (!isNaN(value1)){
+
+    if (!isNaN(value1) && value1 > 0){
       ingresados++;
       datos.push(value1); 
       showResultado.innerText = mensajes[1] + ingresados;
@@ -74,7 +74,6 @@ function suma(){
       sumaArrays += datos[i];
       showResultado = document.getElementById("showR");
       showResultado.innerText = mensajes[4] + sumaArrays;    
-      console.log("suma",sumaArrays);  
       sumaArraysC = sumaArrays;
     }
   }
@@ -90,7 +89,6 @@ function divisorSum(){
       busqueda = mayor - 1;
     }else{
       if (sumaArraysC % busqueda === 0 ){       
-        //console.log("es el divisor busqueda multiplo", busqueda);
         resultado1 = busqueda;
         break;
       } else{
